@@ -1,0 +1,66 @@
+
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.result {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#additionResult {
+    background-color: #e6f7ff;
+}
+
+#subtractionResult {
+    background-color: #f9ebca;
+}
+
+#multiplicationResult {
+    background-color: #e4f9f1;
+}
+
+#divisionResult {
+    background-color: #fde6e6;
+}
+
+#sumOfArrayResult {
+    background-color: #f0e8f4;
+}
+
+#parsedValueResult {
+    background-color: #f5e6cc;
+}
+
+#taxCalculatorResult {
+    background-color: #eaf6f1;
+}
+
+#interestCalculatorResult {
+    background-color: #f4ebcc;
+}
+
+#verticalSumArrayResult {
+    background-color: #ebf5f7;
+}
+
+#randomNumberResult {
+    background-color: #f4f4f4;
+}
+
+#compoundInterestResult {
+    background-color: #ebebeb;
+}

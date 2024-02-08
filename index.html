@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculation Functions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Calculation Functions</h1>
+        
+        <!-- Addition -->
+        <div class="section">
+            <h2>Addition</h2>
+            <input type="number" id="addNum1" placeholder="Enter number 1">
+            <input type="number" id="addNum2" placeholder="Enter number 2">
+            <button onclick="calculateAddition()">Calculate Addition</button>
+            <p id="additionResult"></p>
+        </div>
+
+        <!-- Subtraction -->
+        <div class="section">
+            <h2>Subtraction</h2>
+            <input type="number" id="subNum1" placeholder="Enter minuend">
+            <input type="number" id="subNum2" placeholder="Enter subtrahend">
+            <button onclick="calculateSubtraction()">Calculate Subtraction</button>
+            <p id="subtractionResult"></p>
+        </div>
+
+        <!-- Multiplication -->
+        <div class="section">
+            <h2>Multiplication</h2>
+            <input type="number" id="mulNum1" placeholder="Enter factor 1">
+            <input type="number" id="mulNum2" placeholder="Enter factor 2">
+            <button onclick="calculateMultiplication()">Calculate Multiplication</button>
+            <p id="multiplicationResult"></p>
+        </div>
+
+        <!-- Division -->
+        <div class="section">
+            <h2>Division</h2>
+            <input type="number" id="divNum1" placeholder="Enter dividend">
+            <input type="number" id="divNum2" placeholder="Enter divisor">
+            <button onclick="calculateDivision()">Calculate Division</button>
+            <p id="divisionResult"></p>
+        </div>
+
+        <!-- Sum of Array -->
+        <div class="section">
+            <h2>Sum of Array</h2>
+            <input type="text" id="arrayInput" placeholder="Enter array elements (comma-separated)">
+            <button onclick="calculateArraySum()">Calculate Sum</button>
+            <p id="arraySumResult"></p>
+        </div>
+
+        <!-- Parsed Value -->
+        <div class="section">
+            <h2>Parsed Value</h2>
+            <input type="text" id="parsedInput" placeholder="Enter value to parse">
+            <button onclick="calculateParsedValue()">Parse Value</button>
+            <p id="parsedValueResult"></p>
+        </div>
+
+        <!-- Tax Calculator -->
+        <div class="section">
+            <h2>Tax Calculator</h2>
+            <input type="number" id="taxAmount" placeholder="Enter input amount">
+            <input type="number" id="taxPercentage" placeholder="Enter tax percentage">
+            <button onclick="calculateTax()">Calculate Tax</button>
+            <p id="taxResult"></p>
+        </div>
+
+        <!-- Interest Calculator -->
+        <div class="section">
+            <h2>Interest Calculator</h2>
+            <input type="number" id="principle" placeholder="Enter principle amount">
+            <input type="number" id="period" placeholder="Enter period (in days)">
+            <input type="number" id="interestRate" placeholder="Enter interest rate">
+            <select id="roiOn">
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+                <option value="quarter">Quarter</option>
+                <option value="half-year">Half-year</option>
+                <option value="week">Week</option>
+            </select>
+            <button onclick="calculateInterest()">Calculate Interest</button>
+            <p id="interestResult"></p>
+        </div>
+
+        <!-- Vertical Sum of Array -->
+        <div class="section">
+            <h2>Vertical Sum of Array</h2>
+            <input type="text" id="verticalSumArrayInput" placeholder="Enter array of objects">
+            <input type="text" id="fieldName" placeholder="Enter field name">
+            <button onclick="calculateVerticalSumArray()">Calculate Vertical Sum</button>
+            <p id="verticalSumArrayResult"></p>
+        </div>
+
+        <!-- Random Number Generator -->
+        <div class="section">
+            <h2>Random Number Generator</h2>
+            <input type="number" id="numDigits" placeholder="Enter number of digits">
+            <button onclick="generateRandomNum()">Generate Random Number</button>
+            <p id="randomNumResult"></p>
+        </div>
+
+        <!-- Compound Interest Calculation -->
+        <div class="section">
+            <h2>Compound Interest Calculation</h2>
+            <input type="number" id="compPrinciple" placeholder="Enter principle amount">
+            <input type="number" id="compPeriod" placeholder="Enter period (in days)">
+            <input type="number" id="compInterestRate" placeholder="Enter interest rate">
+            <input type="number" id="compNumOfTimes" placeholder="Enter number of times interest is calculated">
+            <button onclick="calculateCompoundInterest()">Calculate Compound Interest</button>
+            <p id="compoundInterestResult"></p>
+        </div>
+    </div>
+    <script src="calculations.js"></script>
+    <script>
+        // Addition
+        function calculateAddition() {
+            const num1 = parseFloat(document.getElementById('addNum1').value);
+            const num2 = parseFloat(document.getElementById('addNum2').value);
+            const result = addition(num1, num2);
+            document.getElementById('additionResult').textContent = `Result: ${result}`;
+        }
+
+        // Subtraction
+        function calculateSubtraction() {
+            const num1 = parseFloat(document.getElementById('subNum1').value);
+            const num2 = parseFloat(document.getElementById('subNum2').value);
+            const result = subtraction(num1, num2);
+            document.getElementById('subtractionResult').textContent = `Result: ${result}`;
+        }
+
+        // Multiplication
+        function calculateMultiplication() {
+            const num1 = parseFloat(document.getElementById('mulNum1').value);
+            const num2 = parseFloat(document.getElementById('mulNum2').value);
+            const result = multiplication(num1, num2);
+            document.getElementById('multiplicationResult').textContent = `Result: ${result}`;
+        }
+
+        // Division
+        function calculateDivision() {
+            const num1 = parseFloat(document.getElementById('divNum1').value);
+            const num2 = parseFloat(document.getElementById('divNum2').value);
+            const result = division(num1, num2);
+            document.getElementById('divisionResult').textContent = `Result: ${result}`;
+        }
+
+        // Sum of Array
+        function calculateArraySum() {
+            const arrayInput = document.getElementById('arrayInput').value;
+            const arr = arrayInput.split(',').map(num => parseFloat(num.trim()));
+            const result = sumOfArray(arr);
+            document.getElementById('arraySumResult').textContent = `Sum of array: ${result}`;
+        }
+
+        // Parsed Value
+        function calculateParsedValue() {
+            const value = document.getElementById('parsedInput').value;
+            const result = parsedValue(value);
+            document.getElementById('parsedValueResult').textContent = `Parsed value: ${result}`;
+        }
+
+        // Tax Calculator
+        function calculateTax() {
+            const inputAmount = parseFloat(document.getElementById('taxAmount').value);
+            const taxPercentage = parseFloat(document.getElementById('taxPercentage').value);
+            const result = taxCalculator(inputAmount, taxPercentage);
+            document.getElementById('taxResult').textContent = `Tax Amount: ${result.taxAmount}, Total Amount: ${result.totalAmount}`;
+        }
+
+        // Interest Calculator
+        function calculateInterest() {
+            const principle = parseFloat(document.getElementById('principle').value);
+            const period = parseFloat(document.getElementById('period').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value);
+            const roiOn = document.getElementById('roiOn').value;
+            const result = interestCalculator(principle, period, interestRate, roiOn);
+            document.getElementById('interestResult').textContent = `Interest: ${result.interest}, Total Amount: ${result.totalAmount}`;
+        }
+
+        // Vertical Sum of Array
+        function calculateVerticalSumArray() {
+            const dataArray = JSON.parse(document.getElementById('verticalSumArrayInput').value);
+            const fieldName = document.getElementById('fieldName').value;
+            const result = verticalSumArray(dataArray, fieldName);
+            document.getElementById('verticalSumArrayResult').textContent = `Vertical Sum: ${result[fieldName]}`;
+        }
+
+        // Random Number Generator
+        function generateRandomNum() {
+            const numDigits = parseInt(document.getElementById('numDigits').value);
+            const result = generateRandomNumber(numDigits);
+            document.getElementById('randomNumResult').textContent = `Random Number: ${result}`;
+        }
+
+        // Compound Interest Calculation
+        function calculateCompoundInterest() {
+            const principle = parseFloat(document.getElementById('compPrinciple').value);
+            const period = parseFloat(document.getElementById('compPeriod').value);
+            const interestRate = parseFloat(document.getElementById('compInterestRate').value);
+            const numOfTimes = parseFloat(document.getElementById('compNumOfTimes').value);
+            const result = compoundInterestCalculation(principle, period, interestRate, numOfTimes);
+            document.getElementById('compoundInterestResult').textContent = `Interest: ${result.interest}, Total Amount: ${result.totalAmount}`;
+        }
+    </script>
+</body>
+</html>
